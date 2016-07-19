@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mQuery Test</title>
+</head>
+<body>
+    <h1>mQuery Test</h1>
+    <ul>
+        <li><a href="#"><span>Link 1</span></a></li>
+        <li><a href="#"><span>Link 2</span></a></li>
+        <li><a href="#"><span>Link 3</span></a></li>
+    </ul>
+    <p></p>
+    <div id="mquery-remove-me"></div>
+    <div id="jquery-remove-me"></div>
+    <button>Click Me</button>
+    <script src="mQuery/mQuery.js"></script>
+    <script>
+
+        (function(){
+
+            console.log('mQuery:');
+
+            // init
+            var elems = $('a');
+            console.log('init: ', elems);
+
+            // add
+            elems = elems.add( $('p') );
+            console.log('add:', elems );
+
+            // addClass
+            console.log('addClass:', elems.addClass( 'mQuery' ) );
+
+            // hasClass
+            console.log('hasClass:', elems.hasClass( 'mQuery' ) );
+
+            // removeClass
+            console.log('removeClass:', elems.removeClass( 'mQuery' ) );
+
+            // toggleClass
+            console.log('toggleClass:', elems.toggleClass( 'mQuery' ) );
+            elems.toggleClass( 'mQuery' )
+
+            // attr
+            elems.attr( 'title', 'mQuery' );
+            console.log( 'attr:', elems.attr( 'title' ) );
+
+            // children
+            console.log( 'children:', elems.children() );
+
+            // css
+            elems.css( 'background-color', '#fff' );
+            console.log( 'css:', elems.css( 'background-color' ) );
+
+            // data
+            elems.data( 'label', 'mQuery' );
+            console.log( 'data:', elems.data( 'label' ) );
+
+            // each
+            console.log('each:');
+            elems.each(function( i ){
+                console.log( i+':', $(this) );
+            });
+
+            // filter
+            console.log( 'filter:', elems.filter('a') );
+
+            // find
+            console.log( 'find:', elems.find('span') );
+
+            // first
+            console.log( 'first:', elems.first() );
+
+            // html
+            $('p').html( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' );
+            console.log( 'html:', $('p').html() );
+
+            // index
+            console.log( 'index:', elems.index( $('p')[0] ) );
+
+            // last
+            console.log( 'last:', elems.last() );
+
+            // on
+            $('button').on('click', function(){
+                console.log( 'mQuery' );
+            });
+            console.log('on:', 'click button to console "mQuery"');
+
+            // parent
+            console.log( 'parent:', elems.parent('body') );
+
+            // remove 
+            $('#mquery-remove-me').remove();
+            console.log( 'remove:', $('#mquery-remove-me') );
+
+            // siblings
+            console.log( 'siblings:', $('li').siblings() );
+
+            // wrap
+            var div = document.createElement('div');
+            console.log( 'wrap:', $('button').wrap(div) );
+
+        })();
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+
+        (function(){
+
+            console.log('\njQuery:');
+
+            // init
+            var elems = $('a');
+            console.log('init: ', elems);
+
+            // add
+            elems = elems.add( $('p') );
+            console.log('add:', elems );
+
+            // addClass
+            console.log('addClass:', elems.addClass( 'jQuery' ) );
+
+            // hasClass
+            console.log('hasClass:', elems.hasClass( 'jQuery' ) );
+
+            // removeClass
+            console.log('removeClass:', elems.removeClass( 'jQuery' ) );
+
+            // toggleClass
+            console.log('toggleClass:', elems.toggleClass( 'jQuery' ) );
+            elems.toggleClass( 'jQuery' );
+
+            // attr
+            elems.attr( 'title', 'jQuery' );
+            console.log( 'attr:', elems.attr( 'title' ) );
+
+            // children
+            console.log( 'children:', elems.children() );
+
+            // css
+            elems.css( 'background-color', '#fff' );
+            console.log( 'css:', elems.css( 'background-color' ) );
+
+            // data
+            elems.data( 'label', 'jQuery' );
+            console.log( 'data:', elems.data( 'label' ) );
+
+            // each
+            console.log('each:');
+            elems.each(function( i ){
+                console.log( i+':', $(this) );
+            });
+
+            // filter
+            console.log( 'filter:', elems.filter('a') );
+
+            // find
+            console.log( 'find:', elems.find('span') );
+
+            // first
+            console.log( 'first:', elems.first() );
+
+            // html
+            $('p').html( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' );
+            console.log( 'html:', $('p').html() );
+
+            // index
+            console.log( 'index:', elems.index( $('p')[0] ) );
+
+            // last
+            console.log( 'last:', elems.last() );
+
+            // on
+            $('button').on('click', function(){
+                console.log( 'jQuery' );
+            });
+            console.log('on:', 'click button to console "jQuery"');
+
+            // parent
+            console.log( 'parent:', elems.parent('body') );
+
+            // remove 
+            $('#jquery-remove-me').remove();
+            console.log( 'remove:', $('#jquery-remove-me') );
+
+            // siblings
+            console.log( 'siblings:', $('li').siblings() );
+
+            // wrap
+            var div = document.createElement('div');
+            console.log( 'wrap:', $('button').wrap(div) );
+
+            console.log('\n');
+
+        })();
+
+    </script>
+</body>
+</html>

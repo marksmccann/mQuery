@@ -255,7 +255,6 @@ var mQuery = (function(){
          * @return [object] instance
          */
         wrap: function( wrapper ) {
-            var results = [];
             this.each(function(){
                 // Cache the current parent and sibling
                 var parent = this.parentNode;
@@ -267,10 +266,8 @@ var mQuery = (function(){
                 // append it to the parent.
                 if( sibling ){ parent.insertBefore(wrapper, sibling); }
                 else { parent.appendChild(wrapper); }
-                // add wrapper to array to return
-                results.push( wrapper );
             });
-            return $( results );
+            return this;
         },
         /**
          * adds/retrieves inline styles to/from element(s) respectively
@@ -320,19 +317,12 @@ var mQuery = (function(){
                     var elements = $(document.querySelectorAll( selector ));
                     $(this).each(function(){
                         var parent = $(this).parent();
-                        // while there is still a parent
-                        while( typeof parent != 'undefined' ) {
-                            // if this parent matches the selector
-                            if( elements.index(parent[0])+1 ) {
-                                // if parent isn't already in set, add it
-                                if( !results.index(parent[0])+1 ) {
-                                    results.add(parent[0]);
-                                }
-                                // end loop since match was found
-                                break;
+                        // if this parent matches the selector
+                        if( elements.index(parent[0])+1 ) {
+                            // if parent isn't already in set, add it
+                            if( results.index(parent[0]) == -1 ) {
+                                results.add(parent[0]);
                             }
-                            // try the next parent
-                            parent = parent.parent();
                         }
                     });
                 }
@@ -348,7 +338,7 @@ var mQuery = (function(){
             this.each(function(){
                 var element = this;
                 $(this).parent().children().each(function(){
-                    if( element != this && !results.index(this)+1 ) {
+                    if( element != this && results.index(this) == -1 ) {
                         results.add(this);
                     }
                 });
