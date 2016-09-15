@@ -15,6 +15,7 @@ var mQuery = (function(){
         for( var i=0; i<elements.length; i++ ) {
             this[i] = elements[i];
         }
+        this.splice = function(){};
         // return instance
         return this;
     };

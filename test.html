@@ -16,12 +16,16 @@
     <div id="mquery-remove-me"></div>
     <div id="jquery-remove-me"></div>
     <button>Click Me</button>
-    <script src="mQuery/mQuery.js"></script>
+    <script src="mQuery.js"></script>
     <script>
 
         (function(){
 
-            console.log('mQuery:');
+            console.log('mQuery: --------------------------------------------- ');
+
+            // the object
+            console.log('$:', $);
+            console.log('mQuery', mQuery);
 
             // init
             var elems = $('a');
@@ -112,7 +116,11 @@
 
         (function(){
 
-            console.log('\njQuery:');
+            console.log('\njQuery: ---------------------------------------------- ');
+
+            // the object
+            console.log('$:', $);
+            console.log('jQuery', jQuery);
 
             // init
             var elems = $('a');
