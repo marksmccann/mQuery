@@ -1,5 +1,5 @@
 /**
- * mQuery ("mark"Query)
+ * mquery ("mark"query)
  * An independent and rudimentary implemenation of jQuery
  * @author Mark McCann (www.markmccann.me)
  * @license MIT
