@@ -1,5 +1,9 @@
+sudo: required
 language: node_js
 node_js: node
 test_script:
  - npm install
  - npm test
+cache:
+  directories:
+    - node_modules
