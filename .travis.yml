@@ -1,10 +1,6 @@
 language: node_js
-node_js: node
-before_script:
-  - npm install -g chai
-  - npm install -g jquery
-  - npm install -g jsdom
-  - npm install -g mocha
-  - npm install -g mocha-jsdom
-test_script:
-  - npm test
+node_js:
+  - node
+cache:
+  directories:
+    - node_modules
