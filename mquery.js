@@ -1,39 +1,53 @@
 /**
- * mquery ("mark"query)
+ * mquery ("micro"query)
  * An independent and rudimentary implemenation of jQuery
  * @author Mark McCann (www.markmccann.me)
  * @license MIT
- * @version 0.2.0
+ * @version 1.0.0
  */
 
-;(function(){
+;(function(window){
 
-    // only create mQuery object if jQuery doesn't exist
+    // only create mQuery object if jQuery doesn't exist and window does
     if( typeof $ === 'undefined' ) {
 
         // a local copy of the mQuery object
-        M = function( selector ) {
-            return new M.fn.init( selector );
+        $ = function( selector ) {
+            return new $.fn.init( selector );
         }
 
         // create alias and set initial values for the M prototype
-        M.fn = M.prototype = {
-            constructor: M,
+        $.fn = $.prototype = {
+            constructor: $,
             length: 0,
             mquery: "0.2.0",
             splice: function(){},
             init: function( selector ) {
-                return ( typeof selector === "string" )
-                    ? this.add( document.querySelectorAll(selector) )
-                    : this.add( selector );
+                // retieve and save all elements to variable
+                var elements = ( typeof selector === "string" )
+                    ? document.querySelectorAll(selector) : selector;
+                // if there are elements, add them this instance
+                if( elements !== undefined ) {
+                    if( elements.length !== undefined && elements !== window ) {
+                        for( var i=0; i<elements.length; i++ ) {
+                            this[i] = elements[i];
+                            this.length++;
+                        }
+                    } else {
+                        this[0] = elements;
+                        this.length++;
+                    }
+                }
+                // return the instance
+                return this;
             }
         }
 
         // Give the init function the jQuery prototype for later instantiation
-        M.fn.init.prototype = M.fn;
+        $.fn.init.prototype = $.fn;
 
         // create extend method and add to base
-        M.extend = function() {
+        $.extend = function() {
             // set argument list to local var
             var a = arguments;
             for( var i=0, l=a.length; i<l; i++ ) {
@@ -45,26 +59,28 @@
         };
 
         // class methods
-        M.extend( M.fn, {
+        $.extend( $.fn, {
             /**
              * add element(s) to instance
              * @param [object] element(s)
              * @return [object] instance
              */
             add: function( elements ) {
-                if( elements !== undefined ) {
-                    var l = this.length;
-                    if( elements.length !== undefined && elements !== window ) {
-                        for( var i=0; i<elements.length; i++ ) {
-                            this[l+i] = elements[i];
-                            this.length++;
-                        }
-                    } else {
-                        this[l] = elements;
-                        this.length++;
-                    }
-                }
-                return this;
+                // create a new instance to collect all elems
+                var $combined = $(), length
+                // add each existing elem to new inst
+                this.each( function(i){
+                    $combined[i] = this;
+                    $combined.length++;
+                });
+                // add each element passed in to new inst
+                length = $combined.length;
+                $(elements).each(function(i){
+                    $combined[length+i] = this;
+                    $combined.length++;
+                });
+                // return new combined set of elems
+                return $combined;
             },
             /**
              * adds class to all elements
@@ -114,13 +130,13 @@
              * @return [object] instance
              */
             children: function() {
-                var $children = $();
+                var children = [];
                 this.each( function(){
                     $( this.children ).each( function(){
-                        $children.add( this );
+                        children.push( this );
                     });
                 });
-                return $children;
+                return $(children);
             },
             /**
              * adds/retrieves inline styles to/from element(s) respectively
@@ -161,7 +177,7 @@
              * @return [object] instance
              */
             filter: function( param ) {
-                var $results = $();
+                var results = [];
                 this.each(function(){
                     var element = this;
                     // if param type is string (css query)
@@ -169,14 +185,14 @@
                         // grab element's parent's children that match param
                         $(this).parent().find(param).each(function(){
                             // if element matches child, save it
-                            if( element == this ) $results.add( this );
+                            if( element == this ) results.push(this);
                         });
                     } else {
                         // if results of callback are true, save it
-                        if( param.call(this) ) $results.add( this );
+                        if( param.call(this) ) results.push( this );
                     }
                 });
-                return $results;
+                return $(results);
             },
             /**
              * returns children filtered by a CSS query
@@ -184,19 +200,17 @@
              * @return [object] instance
              */
             find: function( selector ) {
-                // empty boost object to collect matches
-                var $results = $();
+                var results = [];
                 this.each(function( index, value ){
                     // results of query
                     var elements = this.querySelectorAll(selector);
                     // make sure there are no duplicates
                     $( elements ).each(function(){
                         // if set doesn't contain this element, add it
-                        if( !$results.index(this)+1 ) $results.add( this );
+                        if( !(results.indexOf(this)+1) ) results.push( this );
                     });
-
                 });
-                return $results;
+                return $(results);
             },
             /**
              * returns first element in list
@@ -275,29 +289,29 @@
              * @return [object] instance
              */
             parent: function( selector ) {
-                var $results = $();
+                var results = [];
                 this.each(function(){
                     // if no selector, just grab the first parent
                     if( typeof selector == 'undefined' ) {
                         var parent = this.parentNode;
-                        if( !$results.index(parent)+1 ) {
-                            $results.add(parent);
+                        if( !(results.indexOf(parent)+1) ) {
+                            results.push(parent);
                         }
                     } else {
-                        var elements = $(document.querySelectorAll( selector ));
+                        var $elems = $(document.querySelectorAll( selector ));
                         $(this).each(function(){
                             var parent = $(this).parent();
                             // if this parent matches the selector
-                            if( elements.index(parent[0])+1 ) {
+                            if( $elems.index(parent[0])+1 ) {
                                 // if parent isn't already in set, add it
-                                if( $results.index(parent[0]) == -1 ) {
-                                    $results.add(parent[0]);
+                                if( results.indexOf(parent[0]) == -1 ) {
+                                    results.push(parent[0]);
                                 }
                             }
                         });
                     }
                 });
-                return $results;
+                return $(results);
             },
             /**
              * remove element(s) from the DOM
@@ -329,16 +343,16 @@
              * @return [object] instance
              */
             siblings: function() {
-                var $results = $();
+                var results = [];
                 this.each(function(){
                     var element = this;
                     $(this).parent().children().each(function(){
-                        if( element != this && $results.index(this) == -1 ) {
-                            $results.add(this);
+                        if( element != this && results.indexOf(this) == -1 ) {
+                            results.push(this);
                         }
                     });
                 });
-                return $results;
+                return $(results);
             },
             /**
              * adds/removes class to all elements
@@ -353,28 +367,30 @@
             },
             /**
              * wraps all elements with a given element
-             * @param [object] wrapper
+             * @param [string] element name
              * @return [object] instance
              */
-            wrap: function( wrapper ) {
+            wrap: function( elem ) {
                 this.each(function(){
+                    // create the new elem to wrap this elem with
+                    var wrap = document.createElement( elem );
                     // Cache the current parent and sibling
                     var parent = this.parentNode;
                     var sibling = this.nextSibling;
                     // Wrap the element (automatically removed from its current parent)
-                    wrapper.appendChild(this);
+                    wrap.appendChild(this);
                     // If the element had a sibling, insert the wrapper before
                     // the sibling to maintain the HTML structure; otherwise, just
                     // append it to the parent.
-                    if( sibling ){ parent.insertBefore(wrapper, sibling); }
-                    else { parent.appendChild(wrapper); }
+                    if( sibling ){ parent.insertBefore(wrap, sibling); }
+                    else { parent.appendChild(wrap); }
                 });
                 return this;
             }
         });
 
         // static methods
-        M.extend( M, {
+        $.extend( $, {
             /**
              * performs asynchronous HTTP request (AJAX)
              * @param [string] url
@@ -392,9 +408,14 @@
             }
         });
 
-        // add M and its shortcut globally
-        window.mQuery = window.$ = M;
+        // if node, return via module.exports
+        if (typeof require === "function" && typeof exports === "object" && typeof module === "object") {
+            module.exports = $;
+        // otherwise, save object to window globally
+        } else if( typeof window !== 'undefined' ) {
+            window.mQuery = window.$ = $;
+        }
 
     }
 
-})();
+})(window);

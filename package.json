@@ -1,0 +1,25 @@
+{
+  "name": "mquery",
+  "version": "1.0.0",
+  "description": "A lightweight, selective jQuery library inspired by Angular's jQuery Lite.",
+  "main": "mquery.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marksmccann/mquery.git"
+  },
+  "author": "Mark McCann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marksmccann/mquery/issues"
+  },
+  "homepage": "https://github.com/marksmccann/mquery",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jquery": "^3.1.1",
+    "mocha": "^3.1.2",
+    "mocha-jsdom": "^1.1.0"
+  }
+}
