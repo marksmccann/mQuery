@@ -21,9 +21,10 @@ describe('$()', function() {
     var $, jquery
     jsdom()
 
-    before(function () {
+    before(function ( done ) {
         $ = require('../mquery.js');
         jquery = require('jquery');
+        done();
     })
 
     it('should be able to create an empty instance', function () {
