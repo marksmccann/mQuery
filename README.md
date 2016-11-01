@@ -1,8 +1,37 @@
-# mQuery
-#### An independent and rudimentary implemenation of jQuery
+mQuery  [![Build Status](https://travis-ci.org/marksmccann/mquery.svg?branch=master)](https://travis-ci.org/marksmccann/mquery)
+==================================================
 
-[![Build Status](https://travis-ci.org/marksmccann/mquery.svg?branch=master)](https://travis-ci.org/marksmccann/mquery)
+A lightweight and selective jQuery library inspired by Angular's jQuery Lite. Created to be a "micro" version of jQuery which only includes a selection of its core methods.
 
-Inspired by Angular's jQuery Lite, I created a lightweight and selective jQuery library for my personal projects called "mark"Query.
+Installation
+--------------------------------------
 
-Go [here](http://www.markmccann.me/post/mquery/) to see which methods and features are supported.
+Install with npm:
+
+```bash
+npm install mquery-js
+```
+
+Install in browser:
+
+```html
+<script src="https://cdn.rawgit.com/marksmccann/mquery/master/dist/mquery.min.js"></script>
+```
+
+API
+--------------------------------------
+
+For a complete list of supported methods and features, view the [documentation](http://www.markmccann.me/post/mquery/).
+
+
+Tests
+--------------------------------------
+
+```bash
+npm test
+```
+
+License
+--------------------------------------
+
+[MIT](LICENSE)

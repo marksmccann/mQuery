@@ -1,6 +1,6 @@
 /**
  * mQuery ("micro"query)
- * A lightweight, selective JavaScript library inspired by Angular's jQuery Lite.
+ * A lightweight and selective jQuery library inspired by Angular's jQuery Lite.
  * @author Mark McCann (www.markmccann.me)
  * @license MIT
  * @version 1.0.0

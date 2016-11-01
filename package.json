@@ -2,7 +2,7 @@
   "name": "mquery-js",
   "title": "mQuery",
   "version": "1.0.0",
-  "description": "A lightweight, selective JavaScript library inspired by Angular's jQuery Lite.",
+  "description": "A lightweight and selective jQuery library inspired by Angular's jQuery Lite.",
   "main": "dist/mquery.js",
   "scripts": {
     "start": "gulp",
