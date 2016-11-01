@@ -21,7 +21,7 @@ describe('$()', function() {
     jsdom()
 
     before(function ( done ) {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
         jquery = require('jquery');
         done();
     })
@@ -66,7 +66,7 @@ describe('add()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should return new instance with added elements', function () {
@@ -104,7 +104,7 @@ describe('addClass()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
         document.body.innerHTML = '<div></div><div></div>';
         $elems = $('div');
     })
@@ -131,7 +131,7 @@ describe('hasClass()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should return true if class exists', function () {
@@ -163,7 +163,7 @@ describe('removeClass()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should remove a class from an element', function () {
@@ -198,7 +198,7 @@ describe('toggleClass()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should remove a class from an element if present', function () {
@@ -243,7 +243,7 @@ describe('attr()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should retrieve attribute value with one param', function () {
@@ -277,7 +277,7 @@ describe('children()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should return set of first-level child elements', function () {
@@ -298,7 +298,7 @@ describe('css()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should retrieve style attribute value with one param', function () {
@@ -327,7 +327,7 @@ describe('data()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should retrieve data attribute value with one param', function () {
@@ -356,7 +356,7 @@ describe('each()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should iterate through each element in the set', function () {
@@ -376,7 +376,7 @@ describe('filter()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should reduce set of elements by query selector', function () {
@@ -406,7 +406,7 @@ describe('find()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should return set of children filtered by query selector', function () {
@@ -423,7 +423,7 @@ describe('first()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should return the first element in the set', function () {
@@ -441,7 +441,7 @@ describe('html()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should retrieve the contents of an element', function () {
@@ -469,7 +469,7 @@ describe('index()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should return index of element in set', function () {
@@ -492,7 +492,7 @@ describe('last()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should return the last element in the set', function () {
@@ -510,7 +510,7 @@ describe('on()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should attach event to given element', function () {
@@ -528,7 +528,7 @@ describe('parent()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should return set of first-level parent elements', function () {
@@ -579,7 +579,7 @@ describe('remove()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should remove an element from the DOM', function () {
@@ -596,7 +596,7 @@ describe('siblings()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should collect set of sibling elements', function () {
@@ -627,7 +627,7 @@ describe('wrap()', function() {
     jsdom()
 
     before(function () {
-        $ = require('../mquery.js');
+        $ = require('../dist/mquery.min.js');
     })
 
     it('should wrap an element in another element', function () {

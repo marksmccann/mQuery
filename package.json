@@ -1,26 +1,38 @@
 {
-  "name": "mquery",
+  "name": "mquery-js",
+  "title": "mQuery",
   "version": "1.0.0",
-  "description": "A lightweight, selective jQuery library inspired by Angular's jQuery Lite.",
-  "main": "mquery.js",
+  "description": "A lightweight, selective JavaScript library inspired by Angular's jQuery Lite.",
+  "main": "dist/mquery.js",
   "scripts": {
+    "start": "gulp",
     "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/marksmccann/mquery.git"
   },
-  "author": "Mark McCann",
-  "license": "ISC",
+  "author": "Mark McCann <mail@markmccann.me>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/marksmccann/mquery/issues"
   },
   "homepage": "https://github.com/marksmccann/mquery",
   "devDependencies": {
     "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-minify": "0.0.14",
     "jquery": "^3.1.1",
     "jsdom": "^9.8.3",
     "mocha": "^3.1.2",
     "mocha-jsdom": "^1.1.0"
-  }
+  },
+  "keywords": [
+    "mquery",
+    "jquery",
+    "javascript",
+    "browser",
+    "library",
+    "dom"
+  ]
 }

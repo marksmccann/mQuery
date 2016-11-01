@@ -1,14 +1,14 @@
 /**
- * mquery ("micro"query)
- * An independent and rudimentary implemenation of jQuery
+ * mQuery ("micro"query)
+ * A lightweight, selective JavaScript library inspired by Angular's jQuery Lite.
  * @author Mark McCann (www.markmccann.me)
  * @license MIT
  * @version 1.0.0
  */
 
-;(function(window){
+;(function(){
 
-    // only create mQuery object if jQuery doesn't exist and window does
+    // only create mQuery object if jQuery doesn't exist
     if( typeof $ === 'undefined' ) {
 
         // a local copy of the mQuery object
@@ -16,17 +16,17 @@
             return new $.fn.init( selector );
         }
 
-        // create alias and set initial values for the M prototype
+        // create alias and set initial values for the prototype
         $.fn = $.prototype = {
             constructor: $,
             length: 0,
-            mquery: "0.2.0",
+            mquery: "1.0.0",
             splice: function(){},
             init: function( selector ) {
-                // retieve and save all elements to variable
+                // retrieve and save all elements to variable
                 var elements = ( typeof selector === "string" )
                     ? document.querySelectorAll(selector) : selector;
-                // if there are elements, add them this instance
+                // if there are elements, add them to this instance
                 if( elements !== undefined ) {
                     if( elements.length !== undefined && elements !== window ) {
                         for( var i=0; i<elements.length; i++ ) {
@@ -62,7 +62,7 @@
         $.extend( $.fn, {
             /**
              * add element(s) to instance
-             * @param [object] element(s)
+             * @param [string|object] selector|element(s)
              * @return [object] instance
              */
             add: function( elements ) {
@@ -234,9 +234,7 @@
                 return match;
             },
             /**
-             * Get the HTML contents of the first element in
-             * the set of matched elements or set the HTML
-             * contents of every matched element.
+             * set HTML contents for all, or get HTML contents for one.
              * @param [string] html
              * @return [object] instance
              */
@@ -253,7 +251,7 @@
             /**
              * see if DOM element exists in element set
              * @param [DOM]
-             * @return [integer] position of element found
+             * @return [integer] position of element found, -1 if not found
              */
             index: function( element ) {
                 var pos = -1;
@@ -394,7 +392,7 @@
             /**
              * performs asynchronous HTTP request (AJAX)
              * @param [string] url
-             * @param [function]
+             * @param [function] callback
              */
              ajax: function( url, callback ) {
                 var xhttp = new XMLHttpRequest();
@@ -418,4 +416,4 @@
 
     }
 
-})(window);
+})();
