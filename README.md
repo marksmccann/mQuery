@@ -24,13 +24,6 @@ API
 For a complete list of supported methods and features, view the [documentation](http://www.markmccann.me/post/mquery/).
 
 
-Tests
---------------------------------------
-
-```bash
-npm test
-```
-
 License
 --------------------------------------
 
