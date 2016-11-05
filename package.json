@@ -1,9 +1,9 @@
 {
   "name": "mquery-js",
   "title": "mQuery",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A lightweight and selective jQuery library inspired by Angular's jQuery Lite.",
-  "main": "dist/mquery.js",
+  "main": "dist/mquery.min.js",
   "scripts": {
     "start": "gulp",
     "test": "mocha"
@@ -27,6 +27,7 @@
     "mocha": "^3.1.2",
     "mocha-jsdom": "^1.1.0"
   },
+  "readme": "README",
   "keywords": [
     "mquery",
     "jquery",

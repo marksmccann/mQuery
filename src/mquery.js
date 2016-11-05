@@ -3,7 +3,7 @@
  * A lightweight and selective jQuery library inspired by Angular's jQuery Lite.
  * @author Mark McCann (www.markmccann.me)
  * @license MIT
- * @version 0.0.1
+ * @version 0.1.0
  */
 
 ;(function(){
@@ -62,8 +62,8 @@
         $.extend( $.fn, {
             /**
              * add element(s) to instance
-             * @param [string|object] selector|element(s)
-             * @return [object] instance
+             * @param {object} elements selector|element(s)
+             * @return {object} instance
              */
             add: function( elements ) {
                 // create a new instance to collect all elems
@@ -84,8 +84,8 @@
             },
             /**
              * adds class to all elements
-             * @param [string] class
-             * @return [object] instance
+             * @param {string} class
+             * @return {object} instance
              */
             addClass: function( className ) {
                 if( className.length > 0 ) {
@@ -97,9 +97,9 @@
             },
             /**
              * set attribute for all, or get value for one
-             * @param [string] attribute
-             * @param [string] value
-             * @return [string|object]
+             * @param {string} attribute
+             * @param {string} value
+             * @return {object} results
              */
             attr: function( attr, value ) {
                 // if no value param, just get value
@@ -116,8 +116,8 @@
             },
             /**
              * iterates through elements and runs callback on each
-             * @param [function] callback
-             * @return [object] instance
+             * @param {function} callback
+             * @return {object} instance
              */
             each: function( callback ) {
                 for ( var i=0; i<this.length; i++ ) {
@@ -127,7 +127,7 @@
             },
             /**
              * collects and returns all children of elements
-             * @return [object] instance
+             * @return {object} instance
              */
             children: function() {
                 var children = [];
@@ -140,9 +140,9 @@
             },
             /**
              * adds/retrieves inline styles to/from element(s) respectively
-             * @param [string] property
-             * @param [string] value
-             * @return [string|object]
+             * @param {string} property
+             * @param {string} value
+             * @return {object} results string|object
              */
             css: function( property, value ) {
                 // if no value param, just get value
@@ -158,9 +158,9 @@
             },
             /**
              * set data attribute for all, or get value for one
-             * @param [string] attribute
-             * @param [string] value
-             * @return [string|object]
+             * @param {string} attribute
+             * @param {string} value
+             * @return {object} results string|object
              */
             data: function( attr, value ) {
                 // if no value, just get value
@@ -173,8 +173,8 @@
             },
             /**
              * returns elements for which the callback returns true
-             * @param [string|function] query|callback
-             * @return [object] instance
+             * @param {string} param query string or callback function
+             * @return {object} instance
              */
             filter: function( param ) {
                 var results = [];
@@ -196,8 +196,8 @@
             },
             /**
              * returns children filtered by a CSS query
-             * @param [string] css query
-             * @return [object] instance
+             * @param {string} css query
+             * @return {object} instance
              */
             find: function( selector ) {
                 var results = [];
@@ -214,15 +214,15 @@
             },
             /**
              * returns first element in list
-             * @return [object] instance
+             * @return {object} instance
              */
             first: function() {
                 return $( this[0] );
             },
             /**
              * determines if class is present on any of the elements
-             * @param [string] class
-             * @return [boolean]
+             * @param {string} class
+             * @return {boolean} result
              */
             hasClass: function( className ) {
                 var match = false;
@@ -235,8 +235,8 @@
             },
             /**
              * set HTML contents for all, or get HTML contents for one.
-             * @param [string] html
-             * @return [object] instance
+             * @param {string} html
+             * @return {object} instance
              */
             html: function( contents ) {
                 if( typeof contents == 'undefined' ) {
@@ -250,8 +250,8 @@
             },
             /**
              * see if DOM element exists in element set
-             * @param [DOM]
-             * @return [integer] position of element found, -1 if not found
+             * @param {DOM} element
+             * @return {integer} index position of element found, -1 if not found
              */
             index: function( element ) {
                 var pos = -1;
@@ -262,16 +262,16 @@
             },
             /**
              * returns first element in list
-             * @return [object] instance
+             * @return {object} instance
              */
             last: function() {
                 return $( this[this.length-1] );
             },
             /**
              * bind event listener to element(s)
-             * @param [string] event
-             * @param [function] callback
-             * @return [object] instance
+             * @param {string} event
+             * @param {function} callback
+             * @return {object} instance
              */
             on: function( event, callback ) {
                 this.each( function( index, element ){
@@ -284,7 +284,7 @@
             /**
              * selects a unique set of parent nodes for element set
              * optinally filtered by a selector
-             * @return [object] instance
+             * @return {object} instance
              */
             parent: function( selector ) {
                 var results = [];
@@ -313,8 +313,7 @@
             },
             /**
              * remove element(s) from the DOM
-             * @param [object] element(s)
-             * @return [object] instance
+             * @return {object} instance
              */
             remove: function() {
                 this.each(function(){
@@ -327,8 +326,8 @@
             },
             /**
              * removes class from all elements
-             * @param [string] class
-             * @return [object] instance
+             * @param {string} class
+             * @return {object} instance
              */
             removeClass: function( className ) {
                 this.each( function(){
@@ -338,7 +337,7 @@
             },
             /**
              * gets the siblings for all elements in set
-             * @return [object] instance
+             * @return {object} instance
              */
             siblings: function() {
                 var results = [];
@@ -354,8 +353,8 @@
             },
             /**
              * adds/removes class to all elements
-             * @param [string] class
-             * @return [object] instance
+             * @param {string} class
+             * @return {object} instance
              */
             toggleClass: function( className ) {
                 this.each( function(){
@@ -365,8 +364,8 @@
             },
             /**
              * wraps all elements with a given element
-             * @param [string] element name
-             * @return [object] instance
+             * @param {string} element name of element, ie 'DIV', 'A', etc.
+             * @return {object} instance
              */
             wrap: function( elem ) {
                 this.each(function(){
@@ -391,8 +390,8 @@
         $.extend( $, {
             /**
              * performs asynchronous HTTP request (AJAX)
-             * @param [string] url
-             * @param [function] callback
+             * @param {string} url
+             * @param {function} callback
              */
              ajax: function( url, callback ) {
                 var xhttp = new XMLHttpRequest();
@@ -403,6 +402,14 @@
                 };
                 xhttp.open("GET", url, true);
                 xhttp.send();
+            },
+            /**
+             * checks to see if given variable is a function or not
+             * @param {function} fn
+             * @returns {boolean} boolean
+             */
+            isFunction: function(fn) {
+                return fn && {}.toString.call(fn) === '[object Function]';
             }
         });
 

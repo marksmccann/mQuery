@@ -644,3 +644,22 @@ describe('wrap()', function() {
     })
 
 })
+
+describe('$.isFunction', function() {
+
+    var $
+    jsdom()
+
+    before(function () {
+        $ = require('../dist/mquery.min.js');
+    })
+
+    it('should return true if it is a function', function () {
+        assert.isTrue( $.isFunction(function(){}) );
+    })
+
+    it('should return false if it is not a function', function () {
+        assert.isFalse( $.isFunction('function') );
+    })
+
+})
