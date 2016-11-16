@@ -3,7 +3,7 @@
  * A lightweight and selective jQuery library inspired by Angular's jQuery Lite.
  * @author Mark McCann (www.markmccann.me)
  * @license MIT
- * @version 0.1.0
+ * @version 0.1.1
  */
 
 ;(function(){
@@ -364,13 +364,13 @@
             },
             /**
              * wraps all elements with a given element
-             * @param {string} element name of element, ie 'DIV', 'A', etc.
+             * @param {object} elem HTML Element
              * @return {object} instance
              */
             wrap: function( elem ) {
                 this.each(function(){
                     // create the new elem to wrap this elem with
-                    var wrap = document.createElement( elem );
+                    var wrap = elem.cloneNode(true);
                     // Cache the current parent and sibling
                     var parent = this.parentNode;
                     var sibling = this.nextSibling;

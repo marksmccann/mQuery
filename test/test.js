@@ -1,5 +1,4 @@
 var jsdom = require('mocha-jsdom');
-var expect = require('chai').expect
 var assert = require('chai').assert
 
 var compare = function( $m, $j ) {
@@ -632,13 +631,13 @@ describe('wrap()', function() {
 
     it('should wrap an element in another element', function () {
         document.body.innerHTML = '<span></span>';
-        var $child = $('span').wrap( 'div' );
+        var $child = $('span').wrap( document.createElement('div') );
         assert.notStrictEqual($child[0].parentNode, '<div><span></span></div>');
     })
 
     it('should wrap each element in set with another element', function () {
         document.body.innerHTML = '<span></span><span></span>';
-        var $children = $('span').wrap( 'div' );
+        var $children = $('span').wrap( document.createElement('div') );
         assert.notStrictEqual($children[0].parentNode, '<div><span></span></div>');
         assert.notStrictEqual($children[1].parentNode, '<div><span></span></div>');
     })

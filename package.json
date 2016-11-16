@@ -3,7 +3,7 @@
   "title": "mQuery",
   "version": "0.1.0",
   "description": "A lightweight and selective jQuery library inspired by Angular's jQuery Lite.",
-  "main": "dist/mquery.min.js",
+  "main": "src/mquery.js",
   "scripts": {
     "start": "gulp",
     "test": "mocha"
@@ -21,8 +21,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
-    "gulp-minify": "0.0.14",
-    "jquery": "^3.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
     "jsdom": "^9.8.3",
     "mocha": "^3.1.2",
     "mocha-jsdom": "^1.1.0"
@@ -30,10 +30,6 @@
   "readme": "README",
   "keywords": [
     "mquery",
-    "jquery",
-    "javascript",
-    "browser",
-    "library",
-    "dom"
+    "jquery"
   ]
 }
