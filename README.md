@@ -1,4 +1,4 @@
-mQuery  [![Build Status](https://travis-ci.org/marksmccann/mquery.svg?branch=master)](https://travis-ci.org/marksmccann/mquery)
+mQuery  [![Build Status](https://travis-ci.org/marksmccann/mquery-js.svg?branch=master)](https://travis-ci.org/marksmccann/mquery-js)
 ==================================================
 
 A lightweight and selective jQuery library inspired by Angular's jQuery Lite. Created to be a "micro" version of jQuery which only includes a selection of its core methods.
