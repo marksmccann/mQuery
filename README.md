@@ -15,7 +15,7 @@ npm install mquery-js
 Install in browser:
 
 ```html
-<script src="https://cdn.rawgit.com/marksmccann/mquery-js/v0.1.1/dist/mquery.min.js"></script>
+<script src="https://cdn.rawgit.com/marksmccann/mquery-js/v0.1.2/dist/mquery.min.js"></script>
 ```
 
 API

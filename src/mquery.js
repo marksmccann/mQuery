@@ -3,7 +3,7 @@
  * A lightweight and selective jQuery library inspired by Angular's jQuery Lite.
  * @author Mark McCann (www.markmccann.me)
  * @license MIT
- * @version 0.1.1
+ * @version 0.1.2
  */
 
 ;(function(){
@@ -20,7 +20,7 @@
         $.fn = $.prototype = {
             constructor: $,
             length: 0,
-            mquery: "0.0.1",
+            mquery: "0.1.2",
             splice: function(){},
             init: function( selector ) {
                 // retrieve and save all elements to variable
