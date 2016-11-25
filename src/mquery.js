@@ -43,7 +43,7 @@
             }
         }
 
-        // Give the init function the jQuery prototype for later instantiation
+        // Give the init function to the jQuery prototype for later instantiation
         $.fn.init.prototype = $.fn;
 
         // create extend method and add to base
@@ -66,21 +66,18 @@
              * @return {object} instance
              */
             add: function( elements ) {
-                // create a new instance to collect all elems
-                var $combined = $(), length
+                // create array to collect elems
+                var results = [];
                 // add each existing elem to new inst
                 this.each( function(i){
-                    $combined[i] = this;
-                    $combined.length++;
+                    results.push(this);
                 });
                 // add each element passed in to new inst
-                length = $combined.length;
                 $(elements).each(function(i){
-                    $combined[length+i] = this;
-                    $combined.length++;
+                    results.push(this);
                 });
                 // return new combined set of elems
-                return $combined;
+                return $(results);
             },
             /**
              * adds class to all elements
