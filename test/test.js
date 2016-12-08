@@ -37,12 +37,24 @@ describe('$()', function() {
         assert.lengthOf($elem, 1);
     })
 
-
     it('should be able to create from query string', function () {
         document.body.innerHTML = '<ul><li></li><li></li><li></li></ul>';
         var $elems = $('li');
         assert.instanceOf($elems, $.fn.init);
         assert.lengthOf($elems, 3);
+    })
+
+    it('should be able to create from element with length attribute', function () {
+        document.body.innerHTML = '<select><option></option><option></option><option></option></select>';
+        var $elem = $( document.querySelector('select') );
+        assert.instanceOf($elem, $.fn.init);
+        assert.lengthOf($elem, 1);
+    })
+
+    it('should be able to create from window object', function () {
+        var $elem = $( window );
+        assert.instanceOf($elem, $.fn.init);
+        assert.lengthOf($elem, 1);
     })
 
     it('should be able to create from another instance', function () {

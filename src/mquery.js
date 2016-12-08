@@ -3,7 +3,7 @@
  * A lightweight and selective jQuery library inspired by Angular's jQuery Lite.
  * @author Mark McCann (www.markmccann.me)
  * @license MIT
- * @version 0.1.2
+ * @version 0.1.3
  */
 
 ;(function(){
@@ -20,15 +20,20 @@
         $.fn = $.prototype = {
             constructor: $,
             length: 0,
-            mquery: "0.1.2",
+            mquery: "0.1.3",
             splice: function(){},
-            init: function( selector ) {
-                // retrieve and save all elements to variable
-                var elements = ( typeof selector === "string" )
-                    ? document.querySelectorAll(selector) : selector;
-                // if there are elements, add them to this instance
+            init: function( elements ) {
+                // if there are elements, add them to instance
                 if( elements !== undefined ) {
-                    if( elements.length !== undefined && elements !== window ) {
+                    // if it is a string, query the DOM
+                    if ( typeof elements === "string" ) {
+                        elements = document.querySelectorAll(elements);
+                    // if it is an individual element or the window, wrap in array
+                    } else if( elements.nodeName !== undefined || elements === window ) {
+                        elements = [elements];
+                    }
+                    // add elements to the instance and increment for each
+                    if( elements.length !== undefined ) {
                         for( var i=0; i<elements.length; i++ ) {
                             this[i] = elements[i];
                             this.length++;
